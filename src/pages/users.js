@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { css } from "@emotion/core"
+import Layout from "../components/layout"
 import Container from "../components/container"
-import { Link } from "gatsby"
+import Header from "../components/header"
 
 const UserWrapper = styled.div`
   display: flex;
@@ -35,10 +35,7 @@ const Username = styled.h2`
 const Excerpt = styled.p`
   margin: 0;
 `
-// Using css prop provides a concise and flexible API to style the components. //
-const underline = css`
-  text-decoration: underline;
-`
+
 const User = props => (
   <UserWrapper>
     <Avatar src={props.avatar} alt="" />
@@ -51,20 +48,21 @@ const User = props => (
 
 export default function Users() {
   return (
-    <Container>
-      <Link to="/">Home</Link>
-      <h1 css={underline}>About Emotion</h1>
-      <p>Emotion is uber cool</p>
-      <User
-        username="Jane Doe"
-        avatar="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg"
-        excerpt="I'm Jane Doe. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-      />
-      <User
-        username="Bob Smith"
-        avatar="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"
-        excerpt="I'm Bob smith, a vertically aligned type of guy. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-      />
-    </Container>
+    <Layout>
+      <Header headerText="Users" />
+      <p>Emotion is uber cool.</p>
+      <Container>
+        <User
+          username="Jane Doe"
+          avatar="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg"
+          excerpt="I'm Jane Doe. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+        />
+        <User
+          username="Bob Smith"
+          avatar="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"
+          excerpt="I'm Bob smith, a vertically aligned type of guy. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+        />
+      </Container>
+    </Layout>
   )
 }

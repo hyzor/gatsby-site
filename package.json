@@ -6,9 +6,8 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "publish:surge": "yarn build && yarn surge ./public falkenby.surge.sh",
@@ -19,8 +18,12 @@
     "@emotion/styled": "^10.0.27",
     "gatsby": "^2.24.47",
     "gatsby-plugin-emotion": "^4.3.10",
+    "gatsby-plugin-typography": "^2.5.10",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-typography": "^0.16.19",
+    "typography": "^0.16.19",
+    "typography-theme-fairy-gates": "^0.16.19"
   },
   "devDependencies": {
     "prettier": "2.0.5",
