@@ -1,10 +1,11 @@
 import React from "react"
 import styled from "@emotion/styled"
 import ListLink from "../components/listlink"
+import { useStaticQuery, graphql } from "gatsby"
 
 const StyledLayout = styled.div`
   margin: 3rem auto;
-  max-width: 650px;
+  max-width: 800px;
   padding: 0 1rem;
 `
 
@@ -18,6 +19,18 @@ const Header = styled.header`
 `
 
 export default function Layout({ children }) {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `
+  )
+
   return (
     <StyledLayout>
       <Header>
@@ -26,8 +39,9 @@ export default function Layout({ children }) {
           <ListLink to="/users/">Users</ListLink>
           <ListLink to="/about/">About</ListLink>
           <ListLink to="/contact/">Contact</ListLink>
+          <ListLink to="/files/">Files</ListLink>
         </List>
-        <h3>My shitty website</h3>
+        <h3>{data.site.siteMetadata.title}</h3>
       </Header>
       {children}
     </StyledLayout>
